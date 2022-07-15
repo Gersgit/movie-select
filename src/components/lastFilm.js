@@ -12,7 +12,7 @@ const LastFilm = () => {
         selectedPeople.films.includes(item.url)
       );
 
-      setLastFilm(films[filmAmount.length - 1]);      
+      setLastFilm(filmAmount.pop());      
     }
   }, [films, selectedPeople]);
 
