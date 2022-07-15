@@ -13,8 +13,6 @@ function App() {
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  console.log(loading);
-
   return (
     <MovieListContext.Provider
       value={{ selectedPeople, setSelectPeople, films, setFilms, setLoading }}
