@@ -3,9 +3,8 @@ import { InputLabel, Select, MenuItem, FormControl, Box } from "@mui/material";
 import { MovieListContext } from "../App";
 
 const PeopleList = ({ api }) => {
-  const { selectedPeople, setSelectPeople, setLoading } = useContext(
-    MovieListContext
-  );
+  const { selectedPeople, setSelectPeople, setLoading, films } =
+    useContext(MovieListContext);
 
   //resursive fetching was very slow.. decided to try something else.
   const [pageCount, setPageCount] = useState(0);
@@ -54,14 +53,16 @@ const PeopleList = ({ api }) => {
 
   useEffect(() => {
     if (people[0]) {
-      setLoading(people[0].count !== peopleNames.length);
+      setLoading(people[0].count === peopleNames.length && films.length !== 0);
     }
-  }, [people]);
+  }, [people, films]);
 
   return (
     <Box sx={{ minWidth: 120, p: 10 }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Choose Your Character</InputLabel>
+        <InputLabel id="demo-simple-select-label">
+          Choose Your Character
+        </InputLabel>
         <Select
           defaultValue=""
           labelId="demo-simple-select-label"

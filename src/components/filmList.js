@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Card, Box } from "@mui/material";
 import { MovieListContext } from "../App";
 
@@ -17,15 +17,13 @@ const FilmList = ({ api }) => {
   }, []);
   
   return (
-    <Box
-      className="filmBox"
-    >
+    <Box className="filmBox">
       {films.map((f, i) => (
         <Card
           variant="outlined"
-          sx={{ transition: '0.5s', p:5, textAlign: 'center' }}
+          sx={{ transition: "0.5s", p: 5, textAlign: "center" }}
           key={i}
-          className={             
+          className={
             selectedPeople
               ? selectedPeople.films.includes(f.url)
                 ? "yup"
